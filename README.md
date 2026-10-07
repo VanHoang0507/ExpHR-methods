@@ -45,47 +45,22 @@ $$ N_n'(u_n)=0. $$
 
 The Hermite-type information is introduced through the directional derivative of the nonlinear remainder along the solution,
 
-$$
-\frac{d}{dt}N_n(u(t))
-=
-N_n'(u(t))F(u(t)).
-$$
+$$ \frac{d}{dt}N_n(u(t)) = N_n'(u(t))F(u(t)). $$
 
 Accordingly, the ExpHR correction is defined by
 
-$$
-H_{ni}=N_n'(U_{ni})F(U_{ni}).
-$$
+$$ H_{ni}=N_n'(U_{ni})F(U_{ni}). $$
 
 The general \(s\)-stage ExpHR method is
 
-$$
-\begin{aligned}
-U_{ni}
-&=
-u_n+c_i h_n\varphi_1(c_i h_nJ_n)F(u_n)
-+h_n^2\sum_{j=2}^{i-1}a_{ij}(h_nJ_n)H_{nj},
-\qquad i=2,\ldots,s,
-\\
-u_{n+1}
-&=
-u_n+h_n\varphi_1(h_nJ_n)F(u_n)
-+h_n^2\sum_{i=2}^{s}b_i(h_nJ_n)H_{ni}.
-\end{aligned}
-$$
+$$ \begin{aligned}
+U_{ni} &= u_n+c_i h_n\varphi_1(c_i h_nJ_n)F(u_n) +h_n^2\sum_{j=2}^{i-1}a_{ij}(h_nJ_n)H_{nj}, \qquad i=2,\ldots,s, \\
+u_{n+1} & =u_n+h_n\varphi_1(h_nJ_n)F(u_n) +h_n^2\sum_{i=2}^{s}b_i(h_nJ_n)H_{ni}.
+\end{aligned} $$
 
 The matrix functions are defined by
 
-$$
-\varphi_0(z)=e^z,
-\qquad
-\varphi_k(z)
-=
-\int_0^1
-e^{(1-\theta)z}
-\frac{\theta^{k-1}}{(k-1)!}\,d\theta,
-\qquad k\geq1.
-$$
+$$ \varphi_0(z)=e^z, \qquad \varphi_k(z) = \int_0^1 e^{(1-\theta)z} \frac{\theta^{k-1}}{(k-1)!}\,d\theta, \qquad k\geq1. $$
 
 ## Relation to ExpH and ExpRB
 
@@ -97,37 +72,27 @@ The main distinction among ExpH, ExpRB, and ExpHR methods is:
 
 For ExpH methods, the fixed splitting
 
-$$
-F(u)=Lu+N(u)
-$$
+$$ F(u)=Lu+N(u)$$
 
 is retained throughout the integration. The matrix functions therefore depend only on \(L\), while Hermite information is introduced through
 
-$$
-N'(u)F(u).
-$$
+$$ N'(u)F(u).$$
 
 Thus, ExpH methods enrich the approximation of the nonlinear term through derivative information, but the nonlinear stiffness remains outside the exponential propagation.
 
 Exponential Rosenbrock methods instead use the full step-dependent Jacobian
 
-$$
-J_n=F'(u_n)=L+N'(u_n),
-$$
+$$ J_n=F'(u_n)=L+N'(u_n), $$
 
 so that stiffness associated with the nonlinear term is incorporated directly into the exponential operator.
 
 Their nonlinear corrections are typically based on value differences of the form
 
-$$
-N_n(U_{ni})-N_n(u_n).
-$$
+$$ N_n(U_{ni})-N_n(u_n). $$
 
 ExpHR methods use the same full Jacobian \(J_n\), but replace the value-based correction by the Hermite-type derivative correction
 
-$$
-N_n'(U_{ni})F(U_{ni}).
-$$
+$$N_n'(U_{ni})F(U_{ni}).$$
 
 Thus, ExpHR combines the treatment of nonlinear stiffness characteristic of exponential Rosenbrock methods with Hermite-type information about the variation of the nonlinear remainder.
 
@@ -137,9 +102,7 @@ The stiff order conditions for ExpHR methods are derived up to order five.
 
 The property
 
-$$
-N_n'(u_n)=0
-$$
+$$ N_n'(u_n)=0 $$
 
 plays an important role in the local error expansion and in the derivation of the stiff order conditions.
 
@@ -198,29 +161,14 @@ The ExpHR schemes are constructed together with embedded formulas for adaptive t
 
 For an \(s\)-stage method, the internal stages are
 
-$$
-U_{ni}
-=
-u_n+c_i h_n\varphi_1(c_i h_nJ_n)F(u_n)
-+h_n^2\sum_{j=2}^{i-1}a_{ij}(h_nJ_n)H_{nj},
-\qquad i=2,\ldots,s.
-$$
+$$ U_{ni} = u_n+c_i h_n\varphi_1(c_i h_nJ_n)F(u_n) +h_n^2\sum_{j=2}^{i-1}a_{ij}(h_nJ_n)H_{nj},\qquad i=2,\ldots,s. $$
 
 The primary approximation is
-
-$$
-u_{n+1}
-=
-u_n+h_n\varphi_1(h_nJ_n)F(u_n)
-+h_n^2\sum_{i=2}^{s}b_i(h_nJ_n)H_{ni},
-$$
+$$ u_{n+1} = u_n+h_n\varphi_1(h_nJ_n)F(u_n) +h_n^2\sum_{i=2}^{s}b_i(h_nJ_n)H_{ni},$$
 
 while the embedded approximation is
 
-$$
-\bar u_{n+1}
-=
-u_n+h_n\varphi_1(h_nJ_n)F(u_n)
+$$ \bar u_{n+1} = u_n+h_n\varphi_1(h_nJ_n)F(u_n)
 +h_n^2\sum_{i=2}^{s}\bar b_i(h_nJ_n)H_{ni}.
 $$
 
@@ -251,63 +199,14 @@ Therefore, the embedded approximation introduces no additional internal stages.
 
 The local error estimator is
 
-$$
-e_{n+1}
-=
-u_{n+1}-\bar u_{n+1},
-$$
+$$ e_{n+1} = u_{n+1}-\bar u_{n+1},$$
 
 or equivalently,
 
-$$
-e_{n+1}
-=
-h_n^2
-\sum_{i=2}^{s}
-\left(
-b_i(h_nJ_n)-\bar b_i(h_nJ_n)
-\right)H_{ni}.
+$$ e_{n+1} = h_n^2 \sum_{i=2}^{s}\left( b_i(h_nJ_n)-\bar b_i(h_nJ_n) \right)H_{ni}.
 $$
 
 This error estimate is used to accept or reject the current step and to determine the next time step.
-
-## Efficient implementation
-
-A key feature of the proposed ExpHR schemes is their low matrix-function implementation cost.
-
-Although ExpHR uses the additional correction
-
-$$
-H_{ni}
-=
-N_n'(U_{ni})F(U_{ni}),
-$$
-
-this quantity is inexpensive for a broad class of local nonlinearities.
-
-Since
-
-$$
-N_n'(U_{ni})
-=
-N'(U_{ni})-N'(u_n),
-$$
-
-the correction can be written as
-
-$$
-H_{ni}
-=
-\left(
-N'(U_{ni})-N'(u_n)
-\right)F(U_{ni}).
-$$
-
-For many reaction--diffusion problems, \(N'(u)\) is diagonal or acts pointwise. Hence, evaluating \(H_{ni}\) requires only inexpensive vector operations.
-
-No additional nonlinear solve is required.
-
-A central implementation feature of the fifth-order ExpHR methods developed in this work is that the required matrix-function actions can be organized using only two calls to a matrix-function routine per time step.
 
 Thus, despite using additional derivative information, the dominant computational cost remains the evaluation of matrix-function actions.
 
@@ -348,58 +247,6 @@ Unless otherwise stated, the numerical error is measured at the final time using
 The numerical experiments focus on stiff semilinear parabolic and reaction--diffusion problems in which the nonlinear contribution may itself be strongly stiff.
 
 The test problems include reaction--diffusion systems such as the Schnakenberg model and phase-field-type problems such as the Allen--Cahn equation.
-
-For a general reaction--diffusion problem
-
-$$
-u_t=D\Delta u+f(u),
-$$
-
-the linear and nonlinear parts are
-
-$$
-L=D\Delta,
-\qquad
-N(u)=f(u),
-$$
-
-and the ExpHR Jacobian is
-
-$$
-J_n
-=
-D\Delta+f'(u_n).
-$$
-
-Thus, in contrast with methods based only on the fixed operator \(L\), the nonlinear stiffness represented by \(f'(u_n)\) is incorporated directly into the exponential propagation.
-
-For the Allen--Cahn equation
-
-$$
-u_t
-=
-\Delta u
-+
-\frac{1}{\varepsilon^2}(u-u^3),
-$$
-
-we have
-
-$$
-L=\Delta,
-\qquad
-N(u)=\frac{1}{\varepsilon^2}(u-u^3),
-$$
-
-and
-
-$$
-N'(u)
-=
-\frac{1}{\varepsilon^2}(1-3u^2).
-$$
-
-As \(\varepsilon\) decreases, the nonlinear contribution becomes increasingly stiff, making this problem suitable for testing the performance of ExpHR methods in the strongly nonlinear stiff regime.
 
 ## Matrix-function evaluations
 
