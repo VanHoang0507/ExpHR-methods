@@ -62,52 +62,6 @@ The matrix functions are defined by
 
 $$ \varphi_0(z)=e^z, \qquad \varphi_k(z) = \int_0^1 e^{(1-\theta)z} \frac{\theta^{k-1}}{(k-1)!}\,d\theta, \qquad k\geq1. $$
 
-## Relation to ExpH and ExpRB
-
-The main distinction among ExpH, ExpRB, and ExpHR methods is:
-
-- `ExpH`: fixed operator \(L\) + Hermite-type derivative information;
-- `ExpRB`: step-dependent Jacobian \(J_n\) + value-based nonlinear remainder corrections;
-- `ExpHR`: step-dependent Jacobian \(J_n\) + Hermite-type derivative corrections.
-
-For ExpH methods, the fixed splitting
-
-$$ F(u)=Lu+N(u)$$
-
-is retained throughout the integration. The matrix functions therefore depend only on \(L\), while Hermite information is introduced through
-
-$$ N'(u)F(u).$$
-
-Thus, ExpH methods enrich the approximation of the nonlinear term through derivative information, but the nonlinear stiffness remains outside the exponential propagation.
-
-Exponential Rosenbrock methods instead use the full step-dependent Jacobian
-
-$$ J_n=F'(u_n)=L+N'(u_n), $$
-
-so that stiffness associated with the nonlinear term is incorporated directly into the exponential operator.
-
-Their nonlinear corrections are typically based on value differences of the form
-
-$$ N_n(U_{ni})-N_n(u_n). $$
-
-ExpHR methods use the same full Jacobian \(J_n\), but replace the value-based correction by the Hermite-type derivative correction
-
-$$N_n'(U_{ni})F(U_{ni}).$$
-
-Thus, ExpHR combines the treatment of nonlinear stiffness characteristic of exponential Rosenbrock methods with Hermite-type information about the variation of the nonlinear remainder.
-
-## Stiff order conditions
-
-The stiff order conditions for ExpHR methods are derived up to order five.
-
-The property
-
-$$ N_n'(u_n)=0 $$
-
-plays an important role in the local error expansion and in the derivation of the stiff order conditions.
-
-The resulting framework allows the construction of practical ExpHR schemes of orders three through five.
-
 ## Implemented ExpHR methods
 
 The repository contains ExpHR methods for both constant and adaptive time stepping.
