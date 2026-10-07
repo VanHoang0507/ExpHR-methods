@@ -37,19 +37,11 @@ $$
 
 Its derivative is
 
-$$
-N_n'(u)
-=
-F'(u)-J_n
-=
-N'(u)-N'(u_n),
-$$
+$$ N_n'(u) = F'(u)-J_n = N'(u)-N'(u_n), $$
 
 and therefore
 
-$$
-N_n'(u_n)=0.
-$$
+$$ N_n'(u_n)=0. $$
 
 The Hermite-type information is introduced through the directional derivative of the nonlinear remainder along the solution,
 
