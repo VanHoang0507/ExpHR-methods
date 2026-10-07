@@ -7,7 +7,7 @@
 
 This repository contains MATLAB implementations and numerical experiments associated with the manuscript:
 
-**Vu Thai Luan and Nguyen Van Hoang, “Exponential Hermite--Rosenbrock Methods for Semilinear PDEs with Strongly Stiff Nonlinearities,” 2026.**
+**Nguyen Van Hoang and Vu Thai Luan, “Exponential Hermite--Rosenbrock Methods for Semilinear PDEs with Strongly Stiff Nonlinearities,” 2026.**
 
 ## Overview
 
