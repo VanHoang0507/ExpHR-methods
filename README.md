@@ -112,22 +112,6 @@ Similarly, `expHR32s2` denotes a two-stage embedded \(3(2)\) ExpHR pair.
 ## Embedded formulas
 
 The ExpHR schemes are constructed together with embedded formulas for adaptive time stepping.
-
-For an \(s\)-stage method, the internal stages are
-
-$$ U_{ni} = u_n+c_i h_n\varphi_1(c_i h_nJ_n)F(u_n) +h_n^2\sum_{j=2}^{i-1}a_{ij}(h_nJ_n)H_{nj},\qquad i=2,\ldots,s. $$
-
-The primary approximation is
-$$ u_{n+1} = u_n+h_n\varphi_1(h_nJ_n)F(u_n) +h_n^2\sum_{i=2}^{s}b_i(h_nJ_n)H_{ni},$$
-
-while the embedded approximation is
-
-$$ \bar u_{n+1} = u_n+h_n\varphi_1(h_nJ_n)F(u_n)
-+h_n^2\sum_{i=2}^{s}\bar b_i(h_nJ_n)H_{ni}.
-$$
-
-Hence, the complete embedded ExpHR pair is
-
 $$
 \begin{aligned}
 U_{ni}
